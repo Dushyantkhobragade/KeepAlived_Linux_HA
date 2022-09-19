@@ -1,6 +1,5 @@
-# KeepAlived_Linux_HA
 
-Keepalived acts as HA. 
+Keepalived acts as HA to keep website available even if one of the backend web servers go down.
 
 In this scenario, configured 2 nginx server with Keepalive floating IP.
 
@@ -19,13 +18,13 @@ Keepalive floating IP: 192.168.207.159
     net.ipv4.tcp_keepalive_probes = 20
     net.ipv4.ip_nonlocal_bind = 1
     
-3. Create the track script "/etc/keepalived/keepalived_check.sh". This script should have executable permission. Look for the file in this git repo.
+3. Create the track script "/etc/keepalived/keepalived_check.sh". This script should have executable permission. Look for the file keepalived_check.sh in this git repo.
 
 4. Create keepalived.conf (/etc/keepalived/keepalived.conf). Look for the keepalived.conf file in this repo.
-Note: Parameters to focus on are state, interface,priority.
-      state: which server you want to make Master and Backup
-      interface: based on your server interface.
-      piority:  Master server always has higher Priority (255) and backup server (254)
+Note: Parameters to focus on in this file are state, interface,priority.
+      - state: which server you want to make Master and Backup
+      - interface: based on your server interface.
+      - piority:  Master server always has higher Priority (255) and backup server (254)
       
 5. Install Webserver Nginx (or whichever your prefered). In this scenario, nginx used.
 6. Enable and start nginx service. Check if nginx is listening on port 80.
