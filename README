@@ -1,5 +1,5 @@
 
-Keepalived acts as HA to keep website available even if one of the backend web servers go down.
+Keepalived acts as HA to keep website available even if one of the backend web servers goes down.
 
 In this scenario, configured 2 nginx server with Keepalive floating IP.
 
